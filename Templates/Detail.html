@@ -1,0 +1,1234 @@
+{% load static%}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <title>Login</title>
+</head>
+<style>
+    .scroller {
+        font-size: 30px;
+        color: orange;
+        position: fixed;
+        top: 95vh;
+        right: 2.5vh;
+        height: 30px;
+        width: 30px;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    @font-face {
+
+        font-family: 'Title';
+        src: url("{% static 'Home/Elianto\Elianto-Regular.ttf'%}") format('truetype');
+
+    }
+
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        scroll-behavior: smooth;
+
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+
+    }
+
+    .Nav {
+        height: 15vh;
+    }
+
+    .Nav .well {
+        position: absolute;
+        top: 30%;
+        left: 35%;
+        background-color: rgb(212, 100, 35);
+        color: white;
+        padding: 15px;
+        letter-spacing: 1px;
+        font-size: 20px;
+    }
+
+    .Nav .well:hover {
+        background-color: rgb(240, 115, 42) !important;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .Nav .col-sm a {
+        position: absolute;
+        top: 40%;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        transition: 0.1s;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
+    .Nav .col-sm a:hover {
+        color: rgb(212, 47, 35);
+
+    }
+
+    button {
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        border-color: rgb(212, 100, 35) !important;
+        letter-spacing: 1px;
+
+    }
+
+    button:hover,
+    button:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .d {
+        position: absolute;
+        top: 320px;
+        width: 305px;
+    }
+
+    .img1 {
+        margin-top: 10%;
+    }
+
+    #btn-login {
+        position: absolute;
+        left: 88.5%;
+        width: 100px;
+        top: 5%;
+        height: 55px;
+        letter-spacing: 1px;
+        font-size: 20px;
+    }
+
+    .follow {
+        position: fixed;
+        left: 1.5%;
+        Top: 49%;
+        writing-mode: vertical-lr;
+        text-orientation: sideways-right;
+        transform: rotate(-180deg);
+        letter-spacing: 2px;
+    }
+
+    .follow i {
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .follow i:hover {
+        color: rgb(212, 47, 35);
+    }
+
+    .line {
+        position: fixed;
+        left: 97%;
+        Top: 45%;
+        writing-mode: vertical-lr;
+        text-orientation: sideways-right;
+        transform: rotate(-360deg);
+        letter-spacing: 2px;
+    }
+
+    .main {
+        height: 60vh;
+        background-color: #171A29;
+        margin-left: 10vh;
+        margin-right: 10vh;
+    }
+
+    .main h1 {
+        position: absolute;
+        left: 40%;
+        top: 22%;
+        color: #FFFFFF;
+    }
+
+    .main img {
+        position: absolute;
+        left: 12%;
+        top: 26%;
+        width: 350px;
+        height: 250px
+    }
+
+    .main .content {
+        position: absolute;
+        left: 40%;
+        top: 32%;
+        font-size: 20px;
+        color: rgb(155, 161, 185);
+    }
+
+    .char {
+        background-color: green;
+        border-radius: 0 !important;
+        padding: 10px;
+        letter-spacing: 1px;
+    }
+
+    .main .well {
+        position: relative;
+        top: 25px;
+        width: 130px;
+        padding: 10px;
+        color: black;
+        cursor: pointer;
+        font-size: 15px;
+        height: 45px !important;
+    }
+
+    .row1 {
+        padding: 10px;
+    }
+
+    .head {
+        font-family: Title;
+        font-size: 45px;
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+
+    .s {
+        box-shadow: none !important;
+        margin: 10px;
+        width: 23.5% !important;
+        height: 370px;
+        transition: 0.2s;
+        cursor: pointer;
+        overflow: hidden;
+
+    }
+
+    .s:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+    }
+
+    .s img {
+        padding: 6px;
+        transition: transform .2s;
+
+    }
+
+    .s:hover img {
+        transform: scale(1.02);
+    }
+
+    .badge {
+        background-color: green;
+        border-radius: 0 !important;
+    }
+
+    .card-text small {
+        float: right;
+    }
+
+    .all {
+        width: 194vh !important;
+        position: absolute;
+        left: 60px;
+    }
+
+    .review {
+        width: 72vh !important;
+        margin-left: 5%;
+
+    }
+
+    .avatar {
+        font-size: 15px;
+        padding: 10px;
+        color: #171A29;
+        vertical-align: middle;
+        border-radius: 25%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #171A29;
+    }
+
+    .sidepannel {
+        position: fixed;
+        background-color: white;
+        border-top: none;
+        border-left: none;
+        border-bottom: none;
+        top: 0px;
+        left: 0px;
+        height: 100vh;
+        width: 0vh;
+        z-index: 1;
+        overflow: auto;
+        transition: 0.5s;
+
+    }
+
+    .sidepannel .C {
+        position: absolute;
+        left: 90%;
+        top: 25px;
+        font-size: 20px;
+
+    }
+
+    .sidepannel input {
+        position: absolute;
+        top: 10%;
+        left: 25px;
+        width: 53vh;
+
+    }
+
+    .suggestion {
+        width: 400px;
+        padding: 15px;
+        height: 90px;
+        margin-left: 25px;
+        border-style: dotted;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom-color: grey;
+    }
+
+    .suggestion:hover {
+        border-top-color: rgb(155, 153, 153);
+        border-bottom-color: rgb(155, 153, 153);
+        cursor: pointer;
+    }
+
+    .suggestion b:hover {
+        cursor: pointer;
+        color: rgb(240, 115, 42);
+    }
+
+    #over {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(189, 185, 185);
+        opacity: 0.5;
+        transition: 0.2s;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    .co {
+        display: none;
+        position: fixed;
+        top: 20vh !important;
+        left: 30vh !important;
+        margin-left: 0% !important;
+        width: 1145px !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        z-index: 1;
+
+        background-color: whitesmoke;
+    }
+
+    .co .row {
+        height: 500px;
+
+    }
+
+    .login .row .img {
+        background-image: url("{% static 'Login/burger-and-vegetables-placed-on-brown-wood-surface-1565982.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+
+    }
+    .update .row .img {
+        background-image: url("{% static 'Search\different-kinds-of-strokes-in-blue-color-4049610.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .co .row .img p {
+        color: white;
+        font-size: 30px;
+        margin-top: 28%;
+        margin-left: 5%;
+        font-weight: bolder;
+    }
+
+    .co .row .col-sm form {
+        margin-top: 5%;
+    }
+
+    .button {
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        width: 100%;
+        border-color: rgb(212, 100, 35) !important;
+    }
+
+    .button:hover,
+    .button:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .button1 {
+        width: 210px;
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        border-color: rgb(212, 100, 35) !important;
+    }
+
+    .button1:hover,
+    .button1:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .facebook-L {
+        background-color: #4C69BA !important;
+        color: white;
+        border-color: #4C69BA !important;
+        margin-top: 38%;
+        width: 265px;
+    }
+
+    .facebook-L:hover,
+    .facebook-L:active {
+        background-color: #5B7BD5 !important;
+        border-color: #5B7BD5 !important;
+        outline-color: #5B7BD5 !important;
+        box-shadow: none !important;
+    }
+
+    .google-L {
+
+        background-color: #DD4B39 !important;
+        color: white;
+        border-color: #DD4B39 !important;
+        margin-top: 38%;
+        width: 265px;
+    }
+
+    .google-L:hover,
+    .google-L:active {
+        background-color: #E74B37 !important;
+        border-color: #E74B37 !important;
+        outline-color: #E74B37 !important;
+        box-shadow: none !important;
+    }
+
+    .facebook-R {
+        background-color: #4C69BA !important;
+        color: white;
+        border-color: #4C69BA !important;
+        margin-top: 10.5%;
+        width: 265px;
+    }
+
+    .facebook-R:hover,
+    .facebook-R:active {
+        background-color: #5B7BD5 !important;
+        border-color: #5B7BD5 !important;
+        outline-color: #5B7BD5 !important;
+        box-shadow: none !important;
+    }
+
+    .google-R {
+
+        background-color: #DD4B39 !important;
+        color: white;
+        border-color: #DD4B39;
+        margin-top: 10.5%;
+        width: 265px;
+    }
+
+    .google-R:hover,
+    .google-R:active {
+        background-color: #E74B37 !important;
+        border-color: #E74B37 !important;
+        outline-color: #E74B37 !important;
+        box-shadow: none !important;
+    }
+
+    .glyphicon-eye-close,
+    .glyphicon-eye-open {
+        position: relative;
+        top: 35px;
+        left: 448px;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .col-sm .C {
+        position: relative;
+        z-index: 2;
+        top: 12px;
+        left: 98%;
+        cursor: pointer;
+    }
+
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes animatezoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+
+
+
+
+
+    .update {
+        display: none;
+    }
+
+    .login {
+        display: none;
+    }
+
+
+
+
+    .dropdown {
+        position: absolute;
+        top: 40px;
+        right: 175px;
+    }
+
+    .drop {
+        position: fixed;
+        top: 95px;
+        right: 75px;
+        background-color: whitesmoke;
+        width: 200px;
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+        padding-left: 0px !important;
+        padding-right: 12px !important;
+        display: none;
+    }
+
+    .drop .dropa {
+
+        /* Grey background color */
+        color: black;
+        /* Black text color */
+        display: block !important;
+        /* Make the links appear below each other */
+        padding-top: 12px !important;
+        padding-bottom: 12px !important;
+        padding-right: 12px !important;
+        padding-left: 12px !important;
+        letter-spacing: 1px;
+        /* Add some padding */
+        text-decoration: none !important;
+        /* Remove underline from links */
+    }
+
+    .drop .dropa:hover {
+        background-color: rgb(240, 115, 42);
+        color: white;
+    }
+
+    .dropdown:hover .drop {
+        display: block;
+    }
+</style>
+
+<body>
+    <div class="scroller">
+        <a href="#home" id="move"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>
+    </div>
+    <div class="container-fluid" id="home">
+        <div class="row Nav">
+            <div class="col-sm">
+                <div class="well well-sm" style="cursor: pointer;" onclick="sideOpen()">{{city}}&nbsp;<i
+                        class="glyphicon glyphicon-globe"></i>
+                </div>
+            </div>
+            <div class="col-sm ">
+            </div>
+            <div class="col-sm ">
+
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'Search\logo_file.png' %}" onclick="Home()" style="cursor: pointer;" title="home"
+                    class="img1">
+            </div>
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm"></div>
+            {% if name  == LoginValue %}
+            <button type="button" id="btn-login" class="btn btn-primary" onclick="loginOpen()">{{name}}</button>
+
+            {% else %}
+            <div class="dropdown">
+                <button type="button" id="btn-login" class="btn btn-primary">{{name}} <i
+                        class="fa fa-caret-down"></i></button>
+                <div class="drop">
+                    <a href="http://127.0.0.1:8000/Search/Fav?cityid={{cityid}}&cityname={{city}}" class="dropa">Your
+                        Favourite</a>
+                    <a href="#" class="dropa" onclick="OpenUpdate(id)" id="det">Update Detail</a>
+                    <a href="#" class="dropa" onclick="OpenUpdate(id)" id="Pass">Update passWord</a>
+                    <a href="#" class="dropa" onclick="logout()">Logout</a>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+    </div>
+    <div class="follow">
+        <i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+            class="fa fa-facebook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i><i
+            class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>- - - - - -
+            -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Follow Us</b>
+    </div>
+    <div class="line">
+        <b>Food Is Life.So Make The Best Choice Here</b>
+    </div>
+    <div class="main">
+        <img src="{% static 'Details/five-white-plates-with-different-kinds-of-dishes-54455.jpg' %}" />
+        <h1>{{data.name}}</h1>
+        <small class="content">{{data.cuisine}}<br>{{city}}
+            <br>
+            <br>
+            <i class="glyphicon glyphicon-star"></i> {{data.rating}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <small><b>{{data.price}}</b> For two</small>
+            <br><br>
+            <small><b>Phone : {{data.number}}</b></small>
+            <br><br>
+            {% if data.hasDel == value %}
+            <span class="badge badge-secondary char">
+                Has Online Delivery</span>&nbsp;&nbsp;
+            {% endif %}
+            {% if data.hasBoo == value %}
+            <span class="badge badge-secondary char">
+                Has Table Booking</span>&nbsp;&nbsp;
+            {% endif %}
+            {% if rate == value %}
+            <span class="badge badge-secondary char"><i class="glyphicon glyphicon-star"></i>
+                Top-Rated</span>&nbsp;&nbsp;
+            {% endif%}
+
+            {% if data.price <= 250 %}
+            <span class="badge badge-secondary char"><i class="fa fa-inr"></i> Pocket-Freindly</span>
+            {% endif%}
+            <br>
+            {% if fav == value%}
+            <div class="well" onclick="makeFav()"><i class="glyphicon glyphicon-heart" id="fav"></i> Favoutrites</div>
+            {%else%}
+            <div class="well" onclick="makeFav()"><i class="glyphicon glyphicon-heart-empty" id="fav"></i> Favoutrites
+            </div>
+            {%endif%}
+        </small>
+
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid all">
+        <div class="row1 head">
+            <center>
+                <h1>Similar Restaurants</h1>
+            </center>
+        </div>
+        <div class="row" style="margin-right:47px;">
+            {% for item in REC %}
+            <div class="card s">
+                <img class="card-img-top"
+                    src="{% static 'Details/five-white-plates-with-different-kinds-of-dishes-54455.jpg' %}"
+                    alt="Card image">
+                <div class="card-body">
+                    <div class="card-title">
+                        <b>{{item.name}}</b><br>
+                        <small>
+                            {% if  item.cuisine == "" %}
+                            -nil-</small>
+                        {% else %}
+                        {{item.cuisine}}</small>
+                        {% endif%}
+                    </div>
+                    <p class="card-text"><span class="badge badge-secondary"><i class="glyphicon glyphicon-star"></i>
+                            {% if  item.rating <= 0 %}
+                            ---</span>
+                        {% else %}
+                        {{item.rating}}</span>
+                        {% endif%}
+                        <small>{% if  item.price <= 0 %}
+                            ---</small></p>
+                    {% else %}
+                    {{item.price}} For Two</small></p>
+                    {% endif%}
+                    <button class="btn btn-primary d" onclick="ViewDetail(encodeURIComponent(id))" id="{{item.name}}">View
+                        Details</button>
+                </div>
+            </div>
+
+
+            {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <br>
+        <div class="row" style="margin-right:47px;">
+            {% endif %}
+            {% endfor%}
+        </div>
+
+    </div>
+
+    <div class="sidepannel card">
+        <i class="fa fa-close C" onclick="sideClose()" style="cursor:pointer"></i>
+        <div class="form-group ">
+            <input type="text" class="form-control" id="city" placeholder="Enter your area street..">
+        </div>
+        <br><br><br><br><br><br>
+        <div id="su">
+
+        </div>
+
+    </div>
+
+
+
+
+    <!--                                  LOGIN                                       -->
+    <div class="container co login animate">
+        <div class="row">
+            <div class="col-sm img">
+                <p id="L">
+                    Explore the Real Taste Here....<br>
+                    <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                        You!</small><br>
+                    <button type="button" class="btn btn-primary button1" id="Register"><b>Dont have a
+                            account?</b></button><br><br><br>
+
+                </p>
+                <p id="R" style="display: none">
+                    Explore the Real Taste Here....<br>
+                    <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                        You!</small><br>
+                    <button type="button" class="btn btn-primary button1" id="Login"><b>Already have a
+                            Account?</b></button>
+                </p>
+
+            </div>
+            <div class="col-sm ">
+                <i class="fa fa-close C" onclick="sideClose()"></i>
+                <form class="Form-L">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                            required title="Must be valid email:">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                        <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                        <input type="password" class="form-control" name="password-L" id="password-L" required
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:">
+
+                        <br>
+                    </div>
+                    <button type="submit" class="btn btn-primary button"><b>Login</b></button>
+                   
+                </form>
+                <form class="Form-R" style="display: none;">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="Text" class="form-control" name="name" required title="Enter your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Number">Mobile Number</label>
+                        <input type="Text" class="form-control" name="number" required
+                            title="Must be of lenght 10 and contain only numericals:" pattern="[1-9]{1}[0-9]{9}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required
+                            title="Must be valid email:">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                        <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                        <input type="password" class="form-control" name="password-R" required
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:"><br>
+                    </div>
+                    <button type="submit" class="btn btn-primary button"><b>Register</b></button>
+                   
+                </form>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!---------------------------------------------------update--------------------------------------------------------->
+
+
+    <div class="container co update animate">
+        <div class="row">
+            <div class="col-sm img">
+
+
+            </div>
+            <div class="col-sm ">
+                <i class="fa fa-close C" onclick="sideClose()"></i>
+                <form class="Form-UL">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="Text" class="form-control" name="name" id="name" title="Enter your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Email">Email address</label>
+                        <input type="email" class="form-control" name="email" id="email1" title="Must be valid email:">
+                    </div>
+                    <div class="form-group">
+                        <label for="Number">Mobile Number</label>
+                        <input type="Text" class="form-control" name="number" id="number"
+                            title="Must be of lenght 10 and contain only numericals:" pattern="[1-9]{1}[0-9]{9}">
+                    </div>
+                    <button type="submit" class="btn btn-primary button"><b>Update Details</b></button> <br>
+                    <br><br><br>
+                    <button type="button" class="btn btn-primary button" id="UpdatePass"><b>Update Password</b></button>
+
+                </form>
+                <form class="Form-UR" style="display: none;">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1"> Old Password</label>
+                        <input type="text" class="form-control" name="OldPassword" required
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:"><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">New Password</label>
+                        <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                        <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                        <input type="password" class="form-control" name="NewPassword" required
+                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                            title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:"><br>
+                    </div>
+                    <button type="submit" class="btn btn-primary button"><b>Update Password</b></button>
+                    <br><br><br><br>
+
+                    <button type="button" class="btn btn-primary button" id="UpdateDet"><b>Update Detail</b></button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.Form-UL').submit(function () { // catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $(this).serialize(), // get the form data
+                type: 'POST', // GET or POST
+                url: 'http://127.0.0.1:8000/Search/UpdateDetail', // the file to call
+                success: function (response) {
+                    if (response.hasOwnProperty("error")) {
+                        alert(response['error']);
+                    }
+                    else {
+                        alert(response['result']);
+                        $(location).attr('href', "http://127.0.0.1:8000/Search/?login=" + "1");
+                        sideClose();
+                    }
+                }
+            });
+            return false;
+        });
+        $('.Form-UR').submit(function () { // catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $(this).serialize(), // get the form data
+                type: 'POST', // GET or POST
+                url: 'http://127.0.0.1:8000/Search/UpdatePass', // the file to call
+                success: function (response) {
+                    if (response.hasOwnProperty("error")) {
+                        alert(response['error']);
+                    }
+                    else {
+                        alert(response['result']);
+                        $('.Form-UR').trigger("reset");
+                        sideClose();
+                    }
+                }
+            });
+            return false;
+        });
+        $('.Form-R').submit(function () { // catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $(this).serialize(), // get the form data
+                type: 'POST', // GET or POST
+                url: 'http://127.0.0.1:8000/Search/Register/?usercity={{city}}&cityid={{cityid}}', // the file to call
+                success: function (response) { // on success..
+                    if (response.hasOwnProperty("result")) {
+                        alert(response['result'])
+                    }
+                    sideClose()
+                    if (response.hasOwnProperty("cityname")) {
+                        $(location).attr('href', "http://127.0.0.1:8000/Search/?cityid=" + response['cityid'] + "&cityname=" + response['cityname']);
+                    }
+                },
+                error: function (response) {
+                    alert("wrong");
+                }
+            });
+            return false;
+        });
+        $('.Form-L').submit(function () { // catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $(this).serialize(), // get the form data
+                type: 'POST', // GET or POST
+                url: 'http://127.0.0.1:8000/Search/Login', // the file to call
+                success: function (response) {
+                    if (response.hasOwnProperty("result")) {
+                        alert(response['result'])
+                    }
+                    sideClose()
+                    if (response.hasOwnProperty("cityname")) {
+                        $(location).attr('href', "http://127.0.0.1:8000/Search/?login=" + "1");
+                    }
+                }
+            });
+            return false;
+        });
+        $("#UpdatePass").click(function () {
+            $(".Form-UL").hide();
+            $(".Form-UR").show();
+        });
+        $("#UpdateDet").click(function () {
+            $(".Form-UL").show();
+            $(".Form-UR").hide();
+        })
+        $("#Register").click(function () {
+            $(".Form-L").hide();
+            $(".Form-R").show();
+            $("#R").show();
+            $("#L").hide();
+        });
+        $("#Login").click(function () {
+            $(".Form-L").show();
+            $(".Form-R").hide();
+            $("#L").show();
+            $("#R").hide();
+        });
+
+        $("move").click(function (e) {
+            e.preventDefault();
+            var section = $(this).attr("href");
+            $("html, body").animate({
+                scrollTop: $(section).offset().top
+            });
+        });
+        //permission
+        function csrfSafeMethod(method) {
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/).test(method);
+        }
+
+        $.ajaxSetup({
+            crossDomain: false,
+            beforeSend: function (xhr, settings) {
+                if (!csrfSafeMethod(settings.type)) {
+                    xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+                }
+            }
+        });
+        $('#city').on("input", function () {
+
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/Search/SearchCity",
+                data: {
+                    // here getdata should be a string so that
+                    // in your views.py you can fetch the value using get('getdata')
+                    'name': $("#city").val()
+
+                },
+                success: function (res, status) {
+
+                    var b = document.getElementById("su");
+                    $("#su").text(" ")
+                    for (item in res.data) {
+                        b.innerHTML += '<div class="suggestion "><i class="glyphicon glyphicon-globe" style="font-size: 20px;"></i>&nbsp;<b style="font-size: 25px;" onclick="changeCity(id)"id="' + res.data[item] + '">' + res.data[item] + '</b>';
+                    }
+                }
+            });
+
+        });
+    });
+    function loginOpen() {
+        var b = document.createElement("div");
+        b.setAttribute('id', 'over');
+        document.body.appendChild(b);
+        $("Body").css("overflow", "hidden");
+        $(".Form-L").show();
+        $(".Form-R").hide();
+        $("#L").show();
+        $("#R").hide();
+        $(".login").css("display", "Block");
+    }
+    function sideOpen() {
+        var b = document.createElement("div");
+        b.setAttribute('id', 'over');
+        document.body.appendChild(b);
+        $("Body").css("overflow", "hidden");
+        $(".sidepannel").css("width", "60vh");
+
+    }
+    function sideClose() {
+        document.getElementById("over").remove();
+        $("Body").css("overflow", "auto");
+        $(".sidepannel").css("width", "0vh");
+        $(".login").css("display", "none");
+        $(".update").css("display", "none");
+    }
+
+    function changeCity(id) {
+        $.ajax({
+            type: 'POST',
+            url: "http://127.0.0.1:8000/Search/ReloadCity",
+            data: {
+                // here getdata should be a string so that
+                // in your views.py you can fetch the value using get('getdata')
+                'name': id
+
+            },
+            success: function (data) {
+                if (data.hasOwnProperty('result')) {
+                    alert(data['result'])
+                }
+                else {
+                    $(location).attr('href', "http://127.0.0.1:8000/Search/?cityid=" + data.cityid + "&cityname=" + data.cityname);
+                    sideClose();
+                }
+            }
+        });
+        sideClose();
+    }
+    function ViewDetail(s) {
+
+        $(location).attr('href', "http://127.0.0.1:8000/Search/LoadRes/?name=" + s + "&cityname=" + "{{city}}" + "&cityid=" + "{{cityid}}");
+    }
+    function showIcon() {
+        var x = document.getElementById("password-L");
+        var x1 = document.getElementById("password-R");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        if (x1.type === "password") {
+            x1.type = "text";
+        } else {
+            x1.type = "password";
+        }
+        $(".glyphicon-eye-open").toggle();
+        $(".glyphicon-eye-close").toggle();
+    }
+    function OpenUpdate(id) {
+        var b = document.createElement("div");
+        b.setAttribute('id', 'over');
+        document.body.appendChild(b);
+        $("Body").css("overflow", "hidden");
+        $(".update").css("display", "Block");
+        $.ajax({
+            type: 'POST',
+            url: "http://127.0.0.1:8000/Search/GetData",
+            data: {
+
+            },
+            success: function (data) {
+                if (data.hasOwnProperty("result")) {
+                    alert(data['result'])
+                    $(location).attr('href', "http://127.0.0.1:8000/");
+                }
+                $("#name").attr("placeholder", data['name']);
+                $("#email1").attr("placeholder", data['email']);
+                $("#number").attr("placeholder", data['number']);
+
+            }
+        });
+        if (id != "Pass") {
+
+
+            $(".Form-UL").show();
+            $(".Form-UR").hide();
+        }
+        else {
+            $(".Form-UL").hide();
+            $(".Form-UR").show();
+        }
+    }
+    function logout() {
+        $.ajax({
+            type: 'POST',
+            url: "http://127.0.0.1:8000/Search/LogOut",
+            data: {
+                // here getdata should be a string so that
+                // in your views.py you can fetch the value using get('getdata')
+
+
+            },
+            success: function (data) {
+                if (data.hasOwnProperty('s')) {
+                    $(location).attr('href', "http://127.0.0.1:8000/Search/?cityid=" + '{{cityid}}' + "&cityname=" + '{{city}}');
+                }
+                else {
+                    alert(data['result'])
+                }
+            }
+        });
+    }
+
+
+    function makeFav() {
+        var name = '{{data.name}}'
+        if ($('#fav').hasClass("glyphicon-heart")) {
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/Search/removeFav",
+                data: {
+                    // here getdata should be a string so that
+                    // in your views.py you can fetch the value using get('getdata')
+                    'name': name,
+                    'cityname': '{{city}}'
+
+                },
+                success: function (res, status) {
+
+                    if (res.hasOwnProperty("result")) {
+                        alert(res["result"]);
+                    }
+                    else {
+                        var b = document.getElementById('fav');
+                        b.setAttribute('class', 'glyphicon glyphicon-heart-empty');
+                    }
+                }
+
+            });
+        }
+        else {
+
+
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/Search/makeFav",
+                data: {
+                    // here getdata should be a string so that
+                    // in your views.py you can fetch the value using get('getdata')
+                    'name': name,
+                    'cityname': '{{city}}'
+
+                },
+                success: function (res, status) {
+                    if (res.hasOwnProperty("result")) {
+                        alert(res["result"]);
+                    }
+                    else {
+                        var b = document.getElementById('fav');
+                        b.setAttribute('class', 'glyphicon glyphicon-heart');
+                    }
+                }
+
+            });
+        }
+    }
+    function Home() {
+        $(location).attr('href', "http://127.0.0.1:8000/Search/?cityid=" + '{{cityid}}' + "&cityname=" + '{{city}}');
+    }
+</script>
+
+</html>

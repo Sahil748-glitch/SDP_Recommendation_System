@@ -1,0 +1,1014 @@
+{% load static%}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <title>Login</title>
+</head>
+<style>
+    .scroller {
+
+        font-size: 30px;
+        color: orange;
+        position: fixed;
+        top: 95vh;
+        right: 1.5vh;
+        height: 30px;
+        width: 30px;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    @font-face {
+
+        font-family: 'Title';
+        src: url("{% static 'Home/Elianto\Elianto-Regular.ttf'%}") format('truetype');
+
+    }
+
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+        ;
+    }
+
+    .img {
+        background-image: url("{% static 'Home/assorted-sliced-fruits-1128678.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-left: none;
+    }
+
+    .img1 {
+        margin-top: 10%;
+    }
+
+    .Nav {
+        height: 15vh;
+    }
+
+    .Home {
+        height: 85vh;
+        margin-left: 5vh;
+        margin-right: 5vh;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .Nav .col-sm a {
+        position: absolute;
+        top: 40%;
+        text-decoration: none;
+        font-size: 18px;
+        color: black;
+        transition: 0.1s;
+        letter-spacing: 1px;
+        font-weight: bold;
+    }
+
+    .Nav .col-sm a:hover {
+        color: rgb(212, 47, 35);
+        
+    }
+
+    .search {
+        position: absolute;
+        left: 0%;
+        top: 76%;
+        width: 300px;
+        height: 32px;
+        background-color: black;
+    }
+
+    button {
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        border-color: rgb(212, 100, 35) !important;
+        letter-spacing: 1px;
+
+    }
+
+    button:hover,
+    button:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    #btn-login {
+        position: absolute;
+        left: 28.5%;
+        width: 100px;
+        top: 25%;
+        height: 55px;
+        letter-spacing: 1px;
+        font-size: 20px;
+    }
+
+    .Title1 {
+        position: absolute;
+        margin-top: 12%;
+        font-size: 180px;
+        letter-spacing: 25px;
+        left: 30%;
+        font-family: Title;
+    }
+
+    .Title2 {
+        position: absolute;
+        margin-top: 23%;
+        font-size: 110px;
+        letter-spacing: 30px;
+        left: 30%;
+        font-family: Title;
+    }
+
+    .follow {
+        position: fixed;
+        left: 1%;
+        Top: 49%;
+        writing-mode: vertical-lr;
+        text-orientation: sideways-right;
+        transform: rotate(-180deg);
+        letter-spacing: 2px;
+    }
+
+    .follow i {
+        cursor: pointer;
+        font-size: 20px;
+    }
+
+    .follow i:hover {
+        color: rgb(212, 47, 35);
+    }
+
+    .line {
+        position: fixed;
+        left: 97.5%;
+        Top: 45%;
+        writing-mode: vertical-lr;
+        text-orientation: sideways-right;
+        transform: rotate(-360deg);
+        letter-spacing: 2px;
+    }
+
+    .Blackline {
+        position: absolute;
+        background-color: black;
+        width: 100px;
+        height: 20px;
+        left: 10%;
+        Top: 62%
+    }
+
+    .para {
+        position: absolute;
+        left: 10%;
+        Top: 67%
+    }
+
+    .para b {
+        font-size: 30px;
+        letter-spacing: 1px;
+    }
+
+    .para small {
+        letter-spacing: 1px;
+        font-size: 15px;
+    }
+
+    .head {
+        height: 15vh;
+
+    }
+
+    .col-sm h1 {
+        position: absolute;
+        left: 42%;
+        font-family: Title;
+        font-size: 65px;
+    }
+
+    .img2 {
+        background-image: url("{% static 'Home/food-on-table-326278.jpg'%}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .body {
+        height: 85vh;
+        margin-left: 5vh;
+        margin-right: 5vh;
+    }
+
+    .whiteline {
+        position: absolute;
+        background-color: white;
+        width: 100px;
+        height: 20px;
+        left: 8%;
+        Top: 35%
+    }
+
+    .body b {
+        font-size: 40px;
+        position: absolute;
+        top: 40%;
+        left: 8%;
+        color: white;
+        letter-spacing: 1px;
+    }
+
+    .body p {
+        letter-spacing: 1px;
+        position: absolute;
+        top: 50%;
+        left: 8%;
+        color: white;
+    }
+
+    .rectangle {
+        font-size: 20px;
+        padding: 5px;
+        background-color: orange;
+    }
+
+    .img3 {
+        background-image: url("{% static 'Home/carrots-food-fresh-freshness-616404.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .mission {
+        top: 28%;
+        position: absolute;
+        left: 19%;
+        width: 900px;
+        letter-spacing: 1px;
+
+        font-weight: bolder;
+    }
+
+    .about {
+        top: 53%;
+        position: absolute;
+        left: 19%;
+        width: 900px;
+        letter-spacing: 1px;
+        font-weight: bolder;
+    }
+
+    .contact {
+        height: 85vh;
+        margin-left: 5vh;
+        margin-right: 5vh;
+    }
+
+    .connect h1 {
+        position: absolute;
+        left: 25%;
+        color: white;
+        font-size: 30px;
+        top: 30%;
+    }
+
+    .connect p {
+        position: absolute;
+        left: 25%;
+        color: rgb(94, 88, 88);
+        font-size: 18px;
+        top: 42%;
+    }
+
+    .connect form {
+        position: absolute;
+        left: 25%;
+        top: 50%;
+        width: 300px;
+    }
+
+    .map h1 {
+        position: absolute;
+        left: 35%;
+        color: white;
+        font-size: 30px;
+        top: 30%;
+    }
+
+    .map_menu h1 {
+        position: absolute;
+        left: 35%;
+        color: white;
+        font-size: 20px;
+        top: 40%;
+    }
+
+    .map_menu .list-group {
+        position: absolute;
+        left: 35%;
+        top: 50%;
+        background-color: inherit !important;
+    }
+
+    .map_service h1 {
+        position: absolute;
+        left: 60%;
+        color: white;
+        font-size: 20px;
+        top: 40%;
+    }
+
+    .map_service .list-group {
+        position: absolute;
+        left: 60%;
+        top: 50%;
+        background-color: inherit !important;
+    }
+
+    .contactline {
+        background-color: rgb(97, 96, 96);
+        position: absolute;
+        left: 15%;
+        top: 415%;
+        width: 1100px;
+        height: 2px;
+    }
+
+    .copy {
+
+        position: absolute;
+        left: 15%;
+        top: 418%;
+        width: 1100px;
+        height: 90px;
+    }
+
+    .sidepannel {
+        position: fixed;
+        background-color: white;
+        border-top: none;
+        border-left: none;
+        border-bottom: none;
+        top: 0px;
+        height: 100vh;
+        width: 0vh;
+        z-index: 1;
+        overflow: auto;
+        transition: 0.5s;
+
+    }
+
+    .sidepannel .C {
+        position: absolute;
+        left: 90%;
+        top: 25px;
+        font-size: 20px;
+
+    }
+
+    .sidepannel input {
+        position: absolute;
+        top: 10%;
+        left: 25px;
+        width: 53vh;
+
+    }
+
+    .suggestion {
+        width: 400px;
+        padding: 15px;
+        height: 90px;
+        margin-left: 25px;
+        border-style: dotted;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        border-bottom-color: grey;
+    }
+
+    .suggestion:hover {
+        border-top-color: rgb(155, 153, 153);
+        border-bottom-color: rgb(155, 153, 153);
+        cursor: pointer;
+    }
+
+    .suggestion b:hover {
+        cursor: pointer;
+        color: rgb(240, 115, 42);
+    }
+
+    #over {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(189, 185, 185);
+        opacity: 0.5;
+        transition: 0.2s;
+    }
+
+
+
+
+
+
+    
+    .co {
+        display: none;
+        position: fixed;
+        top: 20vh !important;
+        left: 30vh !important;
+        margin-left: 0% !important;
+        width: 1145px !important;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        z-index: 1;
+
+        background-color: whitesmoke;
+    }
+
+    .co .row {
+        height: 500px;
+
+    }
+
+    .co .row .img {
+        background-image: url("{% static 'Login/burger-and-vegetables-placed-on-brown-wood-surface-1565982.jpg' %}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .co .row .img p {
+        color: white;
+        font-size: 30px;
+        margin-top: 28%;
+        margin-left: 5%;
+        font-weight: bolder;
+    }
+
+    .co .row .col-sm form {
+        margin-top: 5%;
+    }
+
+    .button {
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        width: 100%;
+        border-color: rgb(212, 100, 35) !important;
+    }
+
+    .button:hover,
+    .button:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .button1 {
+        width: 210px;
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        border-color: rgb(212, 100, 35) !important;
+    }
+
+    .button1:hover,
+    .button1:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .facebook-L {
+        background-color: #4C69BA !important;
+        color: white;
+        border-color: #4C69BA !important;
+        margin-top: 38%;
+        width: 265px;
+    }
+
+    .facebook-L:hover,
+    .facebook-L:active {
+        background-color: #5B7BD5 !important;
+        border-color: #5B7BD5 !important;
+        outline-color: #5B7BD5 !important;
+        box-shadow: none !important;
+    }
+
+    .google-L {
+
+        background-color: #DD4B39 !important;
+        color: white;
+        border-color: #DD4B39 !important;
+        margin-top: 38%;
+        width: 265px;
+    }
+
+    .google-L:hover,
+    .google-L:active {
+        background-color: #E74B37 !important;
+        border-color: #E74B37 !important;
+        outline-color: #E74B37 !important;
+        box-shadow: none !important;
+    }
+
+    .facebook-R {
+        background-color: #4C69BA !important;
+        color: white;
+        border-color: #4C69BA !important;
+        margin-top: 10.5%;
+        width: 265px;
+    }
+
+    .facebook-R:hover,
+    .facebook-R:active {
+        background-color: #5B7BD5 !important;
+        border-color: #5B7BD5 !important;
+        outline-color: #5B7BD5 !important;
+        box-shadow: none !important;
+    }
+
+    .google-R {
+
+        background-color: #DD4B39 !important;
+        color: white;
+        border-color: #DD4B39;
+        margin-top: 10.5%;
+        width: 265px;
+    }
+
+    .google-R:hover,
+    .google-R:active {
+        background-color: #E74B37 !important;
+        border-color: #E74B37 !important;
+        outline-color: #E74B37 !important;
+        box-shadow: none !important;
+    }
+
+    .glyphicon-eye-close,
+    .glyphicon-eye-open {
+        position: relative;
+        top: 35px;
+        left: 448px;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .col-sm .C {
+        position: relative;
+        z-index: 2;
+        top: 12px;
+        left: 98%;
+        cursor: pointer;
+    }
+
+    .animate {
+        -webkit-animation: animatezoom 0.6s;
+        animation: animatezoom 0.6s
+    }
+
+    @-webkit-keyframes animatezoom {
+        from {
+            -webkit-transform: scale(0)
+        }
+
+        to {
+            -webkit-transform: scale(1)
+        }
+    }
+
+    @keyframes animatezoom {
+        from {
+            transform: scale(0)
+        }
+
+        to {
+            transform: scale(1)
+        }
+    }
+
+</style>
+
+<body>
+    <div class="scroller">
+        <a href="#first" id="move"><i class="glyphicon glyphicon-circle-arrow-up"></i></a>
+    </div>
+
+    <div class="container-fluid" id="first">
+        <div class="row Nav">
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm ">
+                <center><a style="right: -10%" href="#first">Home</a></center>
+            </div>
+            <div class="col-sm ">
+                <center><a href="#second" style="right: 25% ">Our Reach</a></center>
+            </div>
+            <div class="col-sm">
+                <img src="{% static 'Home/logo_file.png' %}" class="img1">
+            </div>
+            <div class="col-sm">
+                <center><a href="#third" style="left: 20%">About Us</a></center>
+            </div>
+            <div class="col-sm">
+                <center><a href="#fourth" style="left: -20%">Contact Us</a></center>
+            </div>
+            <div class="col-sm">
+                <center><button type="button" id="btn-login" class="btn btn-primary"onclick="loginOpen()">Login</button></center>
+            </div>
+        </div>
+        <div class="row Home">
+            <div class="col-sm card" style="background-color:orange;border-right: none;"></div>
+            <div class="col-sm img card"></div>
+            <b class="Title1">REAL</b>
+            <p class="Title2">Taste</p>
+            <div class="follow">
+                <i class="fa fa-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i
+                    class="fa fa-facebook">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</i><i
+                    class="fa fa-twitter"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>- - - - - -
+                    -&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Follow Us</b>
+            </div>
+            <div class="line">
+                <b>Food Is Life.So Make The Best Choice Here</b>
+            </div>
+            <div class="Blackline"></div>
+            <div class="para"><b>WelCome</b><br>
+                <small>We are here to bring<br> the best Restaurants To you.</small><br><br>
+                <div class="well well-sm" style="cursor: pointer;" onclick="sideOpen()">Enter name of your city..
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid" id="second">
+        <div class="row head">
+            <div class="col-sm">
+                <h1>Our Reach</h1>
+            </div>
+        </div>
+        <div class="row body card">
+            <div class="col-sm img2"></div>
+            <div class="whiteline"></div>
+            <b>To Every Restaurant</b>
+            <p>we have reached a number of Restauarants all over the world.<br>We have surved them all, talked to all
+                the types of customer and<br>then we are here to direct you to the best restaurants that<br><br><small
+                    class="rectangle">you would like now and in the future.</small></b></button></p>
+
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid" id="third">
+        <div class="row head">
+            <div class="col-sm">
+                <h1>About Us</h1>
+            </div>
+        </div>
+        <div class="row body img3 card">
+            <div class="mission">
+                <center>
+                    <h1 style="font-size: 50px;">- -Our Mission- -</h1>
+                </center><br>
+                <pre
+                    style="font-size: 20px;">Do right and far exceed expectations daily. We do the right thing and lead by putting people first. Each and every &nbsp;connection with our team, guests and shareholders is our opportunity to create an experience that FEEDs – Far Exceeds Expectations Daily – and show how much we care.</pre>
+            </div>
+            <div class="about">
+                <center>
+                    <h1 style="font-size: 50px;">- -About- -</h1>
+                </center>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container-fluid" id="fourth">
+        <div class="row head">
+            <div class="col-sm">
+                <h1>Contact Us</h1>
+            </div>
+        </div>
+        <div class="row contact " style="background-color: rgb(43, 42, 42)">
+            <div class="col-sm">
+                <div class="connect">
+                    <h1>Stay Connected</h1>
+                    <p>join a community of over 10000 people and find the best food</p><br>
+                    <form class="sub">
+                        <div class="form-group ">
+                            <input type="email" class="form-control well" id="emailToSub" name="name"aria-describedby="emailHelp"
+                                placeholder="Enter email" required title="Must be valid email:">
+                        </div>
+                        <button type="submit" class="btn btn-primary button" ><b>Connect</b></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm ">
+               
+                </div>
+
+            </div>
+            <div class="contactline"></div>
+            <div class="copy">
+                <center>
+                    <p>
+                        <h4 style="color:rgb(97, 96, 96);">Support:sahilkalathiya11@gmail.com</h4>
+                        <a href="#">Privacy policy</a> |<b style="color:rgb(97, 96, 96);"> @2020 Sk Productions</b>
+                    </p>
+                </center>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="sidepannel card">
+        <i class="fa fa-close C" onclick="sideClose()" style="cursor:pointer"></i>
+        <div class="form-group ">
+            <input type="text" class="form-control well" id="city" placeholder="Enter your area street..">
+        </div>
+        <br><br><br><br><br><br>
+        <div id="su">
+
+            </div>
+
+    </div>
+
+
+
+      <!--                                  LOGIN                                       -->
+      <div class="container co login animate">
+            <div class="row">
+                <div class="col-sm img">
+                    <p id="L">
+                        Explore the Real Taste Here....<br>
+                        <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                            You!</small><br>
+                        <button type="button" class="btn btn-primary button1" id="Register"><b>Dont have a
+                                account?</b></button><br><br><br>
+    
+                    </p>
+                    <p id="R" style="display: none">
+                        Explore the Real Taste Here....<br>
+                        <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                            You!</small><br>
+                        <button type="button" class="btn btn-primary button1" id="Login"><b>Already have a
+                                Account?</b></button>
+                    </p>
+    
+                </div>
+                <div class="col-sm ">
+                    <i class="fa fa-close C" onclick="sideClose()"></i>
+                    <form class="Form-L">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+                                required title="Must be valid email:">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                            <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                            <input type="password" class="form-control" name="password-L" id="password-L" required
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:">
+    
+                            <br>
+                        </div>
+                        <button type="submit" class="btn btn-primary button"><b>Login</b></button>
+                       
+                    </form>
+                    <form class="Form-R" style="display: none;">
+                        <div class="form-group">
+                            <label for="Name">Name</label>
+                            <input type="Text" class="form-control" name="name" required title="Enter your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="Number">Mobile Number</label>
+                            <input type="Text" class="form-control" name="number" required
+                                title="Must be of lenght 10 and contain only numericals:" pattern="[1-9]{1}[0-9]{9}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required
+                                title="Must be valid email:">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                            <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                            <input type="password" class="form-control" name="password-R" required
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:"><br>
+                        </div>
+                        <button type="submit" class="btn btn-primary button"><b>Register</b></button>
+                        
+                    </form>
+    
+                </div>
+            </div>
+        </div>
+        </div>
+    
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+        $(document).ready(function () {
+            $('.Form-R').submit(function () { // catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $(this).serialize(), // get the form data
+                type: 'POST', // GET or POST
+                url: 'http://127.0.0.1:8000/Search/Register/?usercity={{city}}&cityid={{cityid}}', // the file to call
+                success: function (response) { // on success..
+                    if (response.hasOwnProperty("result")) {
+                        alert(response['result'])
+                    }
+                    sideClose()
+                    if (response.hasOwnProperty("cityname")) {
+                        sideClose()
+                        $(location).attr('href', "http://127.0.0.1:8000/Search/?cityid=" + response['cityid'] + "&cityname=" + response['cityname']);
+                    }
+                },
+                error: function (response) {
+                    alert("wrong");
+                }
+            });
+            return false;
+        });
+        $('.Form-L').submit(function () { // catch the form's submit event
+            $.ajax({ // create an AJAX call...
+                data: $(this).serialize(), // get the form data
+                type: 'POST', // GET or POST
+                url: 'http://127.0.0.1:8000/Search/Login', // the file to call
+                success: function (response) {
+                    if (response.hasOwnProperty("result")) {
+                        alert(response['result'])
+                    }
+                   
+                    if (response.hasOwnProperty("cityname")) {
+                        sideClose()
+                        $(location).attr('href', "http://127.0.0.1:8000/Search/?login=1");
+                    }
+                }
+            });
+            return false;
+        });
+       
+        $("#Register").click(function () {
+            $(".Form-L").hide();
+            $(".Form-R").show();
+            $("#R").show();
+            $("#L").hide();
+        });
+        $("#Login").click(function () {
+            $(".Form-L").show();
+            $(".Form-R").hide();
+            $("#L").show();
+            $("#R").hide();
+        });
+
+            function csrfSafeMethod(method) {
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/).test(method);
+            }
+    
+            $.ajaxSetup({
+                crossDomain: false,
+                beforeSend: function (xhr, settings) {
+                    if (!csrfSafeMethod(settings.type)) {
+                        xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+                    }
+                }
+            });
+            $('#city').on("input", function () {
+    
+                $.ajax({
+                    type: 'POST',
+                    url: "http://127.0.0.1:8000/Search/SearchCity",
+                    data: {
+                        // here getdata should be a string so that
+                        // in your views.py you can fetch the value using get('getdata')
+                        'name': $("#city").val()
+    
+                    },
+                    success: function (res, status) {
+                        var b = document.getElementById("su");
+                        $("#su").text(" ")
+                        for (item in res.data) {
+                            b.innerHTML += '<div class="suggestion "><i class="glyphicon glyphicon-globe" style="font-size: 20px;"></i>&nbsp;<b style="font-size: 25px;" onclick="changeCity(id)"id="' + res.data[item] + '">' + res.data[item] + '</b>';
+                        }
+                    }
+                });
+    
+            });
+        });
+        function changeCity(id) {
+            $.ajax({
+                type: 'POST',
+                url: "http://127.0.0.1:8000/Search/ReloadCity",
+                data: {
+                    // here getdata should be a string so that
+                    // in your views.py you can fetch the value using get('getdata')
+                    'name': id
+    
+                },
+                success: function (data) {
+                    if (data.hasOwnProperty('result')) {
+                        alert(data['result'])
+                    }
+                    else {
+                        $(location).attr('href', "http://127.0.0.1:8000/Search/?cityid=" + data.cityid + "&cityname=" + data.cityname);
+                        sideClose();
+                    }
+                }
+            });
+            sideClose();
+        }
+    $("move").click(function (e) {
+        e.preventDefault();
+        var section = $(this).attr("href");
+        $("html, body").animate({
+            scrollTop: $(section).offset().top
+        });
+    });
+    function loginOpen() {
+        var b = document.createElement("div");
+        b.setAttribute('id', 'over');
+        document.body.appendChild(b);
+        $("Body").css("overflow", "hidden");
+        $(".Form-L").show();
+        $(".Form-R").hide();
+        $("#L").show();
+        $("#R").hide();
+        $(".login").css("display", "Block");
+    }
+    function sideOpen() {
+        var b = document.createElement("div");
+        b.setAttribute('id', 'over');
+        document.body.appendChild(b);
+        $("Body").css("overflow", "hidden");
+        $(".sidepannel").css("width", "60vh");
+
+    }
+    function sideClose() {
+        document.getElementById("over").remove();
+        $("Body").css("overflow", "auto");
+        $(".sidepannel").css("width", "0vh");
+    }
+    $('.sub').submit(function (){
+        var x  = document.getElementById("emailToSub");
+        $.ajax({
+            type: 'POST',
+            url: "http://127.0.0.1:8000/Search/AddSub",
+            data:$(this).serialize(),
+            success: function (data) {
+                alert("successfully subscribed..");
+                $(location).attr('href', "http://127.0.0.1:8000");
+            }
+        });
+    })
+</script>
+
+</html>
+
+
+

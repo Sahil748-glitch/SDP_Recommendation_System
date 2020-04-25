@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+    <title>Login</title>
+</head>
+<style>
+    .co {
+        margin-top: 10%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    }
+
+    .co .row {
+        height: 500px;
+    }
+
+    .co .img {
+        background-image: url("burger-and-vegetables-placed-on-brown-wood-surface-1565982.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 100%;
+        width: 100%;
+
+    }
+
+    .co .img p {
+        color: white;
+        font-size: 30px;
+        margin-top: 28%;
+        margin-left: 5%;
+        font-weight: bolder;
+    }
+
+    .co .col-sm form {
+        margin-top: 5%;
+    }
+
+    .button {
+        background-color: rgb(212, 100, 35);
+        color: white;
+        width: 100%;
+        border-color: rgb(212, 100, 35);
+    }
+
+    .button:hover,
+    .button:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .button1 {
+        width: 200px;
+        background-color: rgb(212, 100, 35) !important;
+        color: white;
+        border-color: rgb(212, 100, 35);
+    }
+
+    .button1:hover,
+    .button1:active {
+        background-color: rgb(240, 115, 42) !important;
+        border-color: rgb(240, 115, 42) !important;
+        outline-color: rgb(240, 115, 42) !important;
+        box-shadow: none !important;
+    }
+
+    .facebook-L {
+        background-color: #4C69BA !important;
+        color: white;
+        border-color: #4C69BA;
+        margin-top: 38%;
+        width: 265px;
+    }
+
+    .facebook-L:hover,
+    .facebook-L:active {
+        background-color: #5B7BD5 !important;
+        border-color: #5B7BD5 !important;
+        outline-color: #5B7BD5 !important;
+        box-shadow: none !important;
+    }
+
+    .google-L {
+
+        background-color: #DD4B39 !important;
+        color: white;
+        border-color: #DD4B39;
+        margin-top: 38%;
+        width: 265px;
+    }
+
+    .google-L:hover,
+    .google-L:active {
+        background-color: #E74B37 !important;
+        border-color: #E74B37 !important;
+        outline-color: #E74B37 !important;
+        box-shadow: none !important;
+    }
+
+    .facebook-R {
+        background-color: #4C69BA !important;
+        color: white;
+        border-color: #4C69BA;
+        margin-top: 10.5%;
+        width: 265px;
+    }
+
+    .facebook-R:hover,
+    .facebook-R:active {
+        background-color: #5B7BD5 !important;
+        border-color: #5B7BD5 !important;
+        outline-color: #5B7BD5 !important;
+        box-shadow: none !important;
+    }
+
+    .google-R {
+
+        background-color: #DD4B39 !important;
+        color: white;
+        border-color: #DD4B39;
+        margin-top: 10.5%;
+        width: 265px;
+    }
+
+    .google-R:hover,
+    .google-R:active {
+        background-color: #E74B37 !important;
+        border-color: #E74B37 !important;
+        outline-color: #E74B37 !important;
+        box-shadow: none !important;
+    }
+
+    .glyphicon-eye-close,
+    .glyphicon-eye-open {
+        position: relative;
+        top: 35px;
+        left: 448px;
+        z-index: 2;
+        cursor: pointer;
+    }
+
+    .co .col-sm .C{
+        position: relative;
+        z-index: 2;
+        top: 12px;
+        left: 98%;
+        cursor: pointer;
+    }
+</style>
+
+<body>
+
+    <!--Container-->
+    <div class="container co">
+        <div class="row">
+            <div class="col-sm img">
+                <p id="L">
+                    Explore the Real Taste Here....<br>
+                    <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                        You!</small><br>
+                    <button type="button" class="btn btn-primary button1" id="Register"><b>Dont have a
+                            account?</b></button><br><br><br>
+
+                </p>
+                <p id="R" style="display: none">
+                    Explore the Real Taste Here....<br>
+                    <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                        You!</small><br>
+                    <button type="button" class="btn btn-primary button1" id="Login"><b>Already have a
+                            Account?</b></button>
+                </p>
+
+            </div>
+            <div class="col-sm ">
+                <i class="fa fa-close C"></i>
+                <form class="Form-L">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" required title="Must be valid email:">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                        <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                        <input type="password" class="form-control" id="password-L" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:">
+
+                        <br>
+                    </div>
+                    <button type="submit" class="btn btn-primary button"><b>Login</b></button>
+                    <button type="button" class="btn btn-primary facebook-L"><i class="fa fa-facebook"></i><b> | Login
+                            with FaceBook</b></button>
+                    <button type="button" class="btn btn-primary google-L"><i class="fa fa-google"></i><b> | Login with
+                            Google</b></button>
+                </form>
+                <form class="Form-R" style="display: none;">
+                    <div class="form-group">
+                        <label for="Name">Name</label>
+                        <input type="Text" class="form-control" name="name" required title="Enter your Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="Number">Mobile Number</label>
+                        <input type="Text" class="form-control" name="number" required  title="Must be of lenght 10 and contain only numericals:" pattern="[1-9]{1}[0-9]{9}">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required title="Must be valid email:">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                        <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                        <input type="password" class="form-control" name="password-R" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:"><br>
+                    </div>
+                    <button type="submit" class="btn btn-primary button"><b>Register</b></button>
+                    <button type="button" class="btn btn-primary facebook-R"><i class="fa fa-facebook"></i><b> | Register
+                            with FaceBook</b></button>
+                    <button type="button" class="btn btn-primary google-R"><i class="fa fa-google"></i><b> | Register with
+                            Google</b></button>
+                </form>
+               
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--                                  LOGIN                                       -->
+        <div class="container co login animate">
+                <div class="row">
+                    <div class="col-sm img">
+                        <p id="L">
+                            Explore the Real Taste Here....<br>
+                            <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                                You!</small><br>
+                            <button type="button" class="btn btn-primary button1" id="Register"><b>Dont have a
+                                    account?</b></button><br><br><br>
+    
+                        </p>
+                        <p id="R" style="display: none">
+                            Explore the Real Taste Here....<br>
+                            <small style="font-size: 15px">Selecting the best Life-transforming,Superrich meal for
+                                You!</small><br>
+                            <button type="button" class="btn btn-primary button1" id="Login"><b>Already have a
+                                    Account?</b></button>
+                        </p>
+    
+                    </div>
+                    <div class="col-sm ">
+                        <i class="fa fa-close C" onclick="sideClose()"></i>
+                        <form class="Form-L">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    aria-describedby="emailHelp" required title="Must be valid email:">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                                <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                                <input type="password" class="form-control" name="password-L" id="password-L" required
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:">
+    
+                                <br>
+                            </div>
+                            <button type="submit" class="btn btn-primary button"><b>Login</b></button>
+                            <button type="button" class="btn btn-primary facebook-L"><i class="fa fa-facebook"></i><b> |
+                                    Login
+                                    with FaceBook</b></button>
+                            <button type="button" class="btn btn-primary google-L"><i class="fa fa-google"></i><b> | Login
+                                    with
+                                    Google</b></button>
+                        </form>
+                        <form class="Form-R" style="display: none;">
+                            <div class="form-group">
+                                <label for="Name">Name</label>
+                                <input type="Text" class="form-control" name="name" required title="Enter your Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="Number">Mobile Number</label>
+                                <input type="Text" class="form-control" name="number" required
+                                    title="Must be of lenght 10 and contain only numericals:" pattern="[1-9]{1}[0-9]{9}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp" required
+                                    title="Must be valid email:">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <i class="glyphicon glyphicon-eye-close" onclick="showIcon()"></i>
+                                <i class="glyphicon glyphicon-eye-open" style="display: none" onclick="showIcon()"></i>
+                                <input type="password" class="form-control" name="password-R" required
+                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                    title="Must contain 8 or more characters that are of at least one number, and one uppercase and lowercase letter:"><br>
+                            </div>
+                            <button type="submit" class="btn btn-primary button"><b>Register</b></button>
+                            <button type="button" class="btn btn-primary facebook-R"><i class="fa fa-facebook"></i><b> |
+                                    Register
+                                    with FaceBook</b></button>
+                            <button type="button" class="btn btn-primary google-R"><i class="fa fa-google"></i><b> |
+                                    Register
+                                    with
+                                    Google</b></button>
+                        </form>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+</body>
+<script>
+    $(document).ready(function () {
+        $("#Register").click(function () {
+            $(".Form-L").hide();
+            $(".Form-R").show();
+            $("#R").show();
+            $("#L").hide();
+        });
+        $("#Login").click(function () {
+            $(".Form-L").show();
+            $(".Form-R").hide();
+            $("#L").show();
+            $("#R").hide();
+        });
+    });
+    function showIcon() {
+        var x = document.getElementById("password-L");
+        var x1 = document.getElementById("password-R");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        if (x1.type === "password") {
+            x1.type = "text";
+        } else {
+            x1.type = "password";
+        }
+        $(".glyphicon-eye-open").toggle();
+        $(".glyphicon-eye-close").toggle();
+    }
+
+
+</script>
+
+</html>
